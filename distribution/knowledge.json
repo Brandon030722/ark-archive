@@ -1,0 +1,358 @@
+{
+  "format": 1,
+  "release": "b47a5767ea5845878b6b93de035c622b",
+  "sha256": "64d21e9f0d4b083324c0bba569f85df5a14d74b4517973626f7deaa5f2aa2936",
+  "tables": {
+    "ruleset": 4,
+    "entity": 26520,
+    "entity_alias": 26521,
+    "source_snapshot": 47,
+    "dataset": 4,
+    "dataset_source": 68,
+    "knowledge_record": 26520,
+    "evidence_span": 26520,
+    "record_evidence": 26520,
+    "fact_assertion": 26520,
+    "effect_rule": 0,
+    "operator": 432,
+    "skill_level": 8918,
+    "talent_variant": 1870,
+    "module_phase": 1503,
+    "recruit_pool_member": 160,
+    "garrison_unit": 6,
+    "release_manifest": 1,
+    "release_dataset": 4,
+    "active_release": 1
+  },
+  "sources": [
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/activity_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/activity_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "10f9b70a5e69a86dfa845e761ee49232c7d17755f469202b080c59bef5feb304",
+      "byte_size": 14126572
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/activity_table.json@1457587e48fe65361f523821d24e6d14c3b91713",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/1457587e48fe65361f523821d24e6d14c3b91713/zh_CN/gamedata/excel/activity_table.json",
+      "revision": "1457587e48fe65361f523821d24e6d14c3b91713",
+      "content_hash": "1ccc12d2c93a42b6b632b6a03528bdf2e41e03061491710d13efdd26deab8933",
+      "byte_size": 12804830
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/activity_table.json@86b6e749d3384dd0c7b825abbb795845dc6df933",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/86b6e749d3384dd0c7b825abbb795845dc6df933/zh_CN/gamedata/excel/activity_table.json",
+      "revision": "86b6e749d3384dd0c7b825abbb795845dc6df933",
+      "content_hash": "f4b4d057fd4714915fb96d5719de7e8882da31026abbb8c38272b832cdb10e95",
+      "byte_size": 12886408
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/battle_equip_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/battle_equip_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "991ce1a8cd76682704b7e95fb71de8c726fd9ff62038a2da31b8a3870dc48055",
+      "byte_size": 5763741
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/character_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/character_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "e523c7c83c36e2d76697121079e17d0282da1a94d59a55e1cc55616edf0b41c4",
+      "byte_size": 15069101
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/gacha_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/gacha_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "8b7025cb9721ea9ec4bcbd9184a77ead5fb4e50ad6e6647ed85ff8c2f150502b",
+      "byte_size": 461948
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/roguelike_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/roguelike_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "95e15b22c5efb46c5c80e29286072a8e9d93e058ddaeee9819d5b6dc20278533",
+      "byte_size": 382157
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/roguelike_topic_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/roguelike_topic_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "36d8189e1e466fa07226effbf2cf224a69fb41a942ae83827934052e7a01cc69",
+      "byte_size": 17958101
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/skill_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/skill_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "b6559b845efea6042e23f1d976185f12e13de3d749464543f5c2c17a7d2fa280",
+      "byte_size": 11557971
+    },
+    {
+      "source_key": "arknights-game-data:zh_CN/gamedata/excel/uniequip_table.json",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/17759cc8cdf37388414145d16262a3a06f3ab25e/zh_CN/gamedata/excel/uniequip_table.json",
+      "revision": "17759cc8cdf37388414145d16262a3a06f3ab25e",
+      "content_hash": "c436d9ca672c8e8c3926d0ccbd496f7591004baf944f8cb47458572f4eaa8590",
+      "byte_size": 3392727
+    },
+    {
+      "source_key": "arknights-official:news/0787",
+      "url": "https://ak.hypergryph.com/news/0787",
+      "revision": "sha256:d33ffa75aae84deb0a8067627ede52244b8df67a94279cfc04e872083c37bf12",
+      "content_hash": "d33ffa75aae84deb0a8067627ede52244b8df67a94279cfc04e872083c37bf12",
+      "byte_size": 271828
+    },
+    {
+      "source_key": "arknights-official:news/4915",
+      "url": "https://ak.hypergryph.com/news/4915",
+      "revision": "sha256:fd7ddd165286a6141c96770163250d30606033c941cac0a2e2589ca258ad03f7",
+      "content_hash": "fd7ddd165286a6141c96770163250d30606033c941cac0a2e2589ca258ad03f7",
+      "byte_size": 170097
+    },
+    {
+      "source_key": "arknights-official:news/5114",
+      "url": "https://ak.hypergryph.com/news/5114",
+      "revision": "sha256:2b32870001566ff1a034353d33d282ad6cb426bb72c6fb2885086dee457349e8",
+      "content_hash": "2b32870001566ff1a034353d33d282ad6cb426bb72c6fb2885086dee457349e8",
+      "byte_size": 181907
+    },
+    {
+      "source_key": "arknights-official:news/5197",
+      "url": "https://ak.hypergryph.com/news/5197",
+      "revision": "sha256:1337f7892b2b996d52965a951328a89d600bb92b200ae34b806efcc8b9b414a1",
+      "content_hash": "1337f7892b2b996d52965a951328a89d600bb92b200ae34b806efcc8b9b414a1",
+      "byte_size": 165978
+    },
+    {
+      "source_key": "arknights-official:news/8584",
+      "url": "https://ak.hypergryph.com/news/8584",
+      "revision": "sha256:eca8481d526eb0d6e959fb52b3ee837c5e8d4a3961d17a294771fa87937ab9e7",
+      "content_hash": "eca8481d526eb0d6e959fb52b3ee837c5e8d4a3961d17a294771fa87937ab9e7",
+      "byte_size": 177893
+    },
+    {
+      "source_key": "garrison-regulation:6f63c14e27b847ef74b53b00fe51fc322b3cd7ff:activity_table",
+      "url": "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/6f63c14e27b847ef74b53b00fe51fc322b3cd7ff/zh_CN/gamedata/excel/activity_table.json",
+      "revision": "6f63c14e27b847ef74b53b00fe51fc322b3cd7ff",
+      "content_hash": "8a4327bb9651f875c67990e3a2faab2ba8fe81559d322cdbd27bf34bf0f7169d",
+      "byte_size": 15140874
+    },
+    {
+      "source_key": "official:garrison:9695",
+      "url": "https://ak.hypergryph.com/news/9695",
+      "revision": "sha256:0eab8b0bf54e86d8ffd4b01f8e983304dc23d3cafeb7211f0368eabeaa4d2009",
+      "content_hash": "0eab8b0bf54e86d8ffd4b01f8e983304dc23d3cafeb7211f0368eabeaa4d2009",
+      "byte_size": 166934
+    },
+    {
+      "source_key": "prts:garrison:386614",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=386614&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "386614",
+      "content_hash": "7fb14c0dbcc851a726d5394f9e1a4e98ee1f4d906efbbed215fc4d0bfcb9b39f",
+      "byte_size": 181849
+    },
+    {
+      "source_key": "prts:garrison:386822",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=386822&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "386822",
+      "content_hash": "6d8435069dd4581c40757c8a500203e62ae59564338ffbcb1599b01eb0a3252d",
+      "byte_size": 166833
+    },
+    {
+      "source_key": "prts:garrison:389183",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=389183&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "389183",
+      "content_hash": "5dfb7b95404a6651bccd6d036b5fa6fa2f3f66b3409fe5fdb084edbddd7f2a0c",
+      "byte_size": 168160
+    },
+    {
+      "source_key": "prts:garrison:389184",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=389184&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "389184",
+      "content_hash": "5dee89d061c791182b89344e8d009f5d0e67161fa5ebbb404dd4290c25b86c4f",
+      "byte_size": 168178
+    },
+    {
+      "source_key": "prts:garrison:430572",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=430572&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "430572",
+      "content_hash": "9f599d9a39f0d51a352662f1cee832922bf5c9d39a524dff5efb0a64877c5997",
+      "byte_size": 168360
+    },
+    {
+      "source_key": "prts:garrison:439189",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=439189&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "439189",
+      "content_hash": "10c47f8872154cffb7dc74358c7a3aedea8bd0fa03845cd2aaf67f257ab2d201",
+      "byte_size": 79383
+    },
+    {
+      "source_key": "prts:recruitment:公开招募",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=430506&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "430506",
+      "content_hash": "f055777685cca5104dce2a4070e94e4e47069e004d48f09af582247bab41db0f",
+      "byte_size": 20668
+    },
+    {
+      "source_key": "prts:recruitment:微件:HrCalculator",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&revids=440254&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2",
+      "revision": "440254",
+      "content_hash": "353813d4480dc24344fd6290dca261c1fd56a52a3d9eec0a79bc9caf936ed217",
+      "byte_size": 17550
+    },
+    {
+      "source_key": "prts:roguelike:236347",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=236347",
+      "revision": "236347",
+      "content_hash": "9b404c227c751dd43881292be1d1c07570c5edfd4b92d9dcccad7e8399d99faf",
+      "byte_size": 34711
+    },
+    {
+      "source_key": "prts:roguelike:408461",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=408461",
+      "revision": "408461",
+      "content_hash": "b83c456626bc64ca2c8743fece33312ce9dd65e9a528bf3f22f09850a3e66dbf",
+      "byte_size": 95064
+    },
+    {
+      "source_key": "prts:roguelike:408462",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=408462",
+      "revision": "408462",
+      "content_hash": "70a6695d4d9dbe5fd111b0ca9c695221e75f29d08ae9cd955400a34afaec3363",
+      "byte_size": 106683
+    },
+    {
+      "source_key": "prts:roguelike:427726",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=427726",
+      "revision": "427726",
+      "content_hash": "d3a359b86335d156a51816fcd201ed54945cce249c69dbc2a57882821e9278d8",
+      "byte_size": 66563
+    },
+    {
+      "source_key": "prts:roguelike:428149",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=428149",
+      "revision": "428149",
+      "content_hash": "9dbf051e9b9fd130416fff120cb41e4fc878f3d426d10cb7e104245acc3d2855",
+      "byte_size": 108803
+    },
+    {
+      "source_key": "prts:roguelike:430544",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=430544",
+      "revision": "430544",
+      "content_hash": "6da78b1e8f403a3afd70f1a03fb627bd5f9f1ef1c8a8501c985ca4cbccd3a219",
+      "byte_size": 36165
+    },
+    {
+      "source_key": "prts:roguelike:430546",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=430546",
+      "revision": "430546",
+      "content_hash": "11a08af348eda4dd1d435d7f2e45fa6fa7c7a83fd43eee8fabed158208d52cde",
+      "byte_size": 60436
+    },
+    {
+      "source_key": "prts:roguelike:431095",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431095",
+      "revision": "431095",
+      "content_hash": "45b0d80a8e71cd61f5c9cd35b9c34d70b84bd5e12615f08fbfb0e53ff5fadb96",
+      "byte_size": 143059
+    },
+    {
+      "source_key": "prts:roguelike:431100",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431100",
+      "revision": "431100",
+      "content_hash": "d75e748c3294e517f9385574da2bf49b283a9d52dc5444bd07082a8ad4fda5ce",
+      "byte_size": 59735
+    },
+    {
+      "source_key": "prts:roguelike:431166",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431166",
+      "revision": "431166",
+      "content_hash": "3bf4086f8021dd1a7f40325faaf79c8eaf5ed1dcb6e401c0d57d9c35ac9df2b5",
+      "byte_size": 133614
+    },
+    {
+      "source_key": "prts:roguelike:432729",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432729",
+      "revision": "432729",
+      "content_hash": "be4e894a408e349a712cdc44b7d6bdb79a9766d95972565461769dbdbe8b51c3",
+      "byte_size": 267130
+    },
+    {
+      "source_key": "prts:roguelike:432748",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432748",
+      "revision": "432748",
+      "content_hash": "a84611acdea7711a0b5c1f77cf76bc4f896f2d438626c2e5c022ad5894c7ab19",
+      "byte_size": 226665
+    },
+    {
+      "source_key": "prts:roguelike:432913",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432913",
+      "revision": "432913",
+      "content_hash": "9bcca88338be65fc7dc79b1d00b9d5639c6e681d33dcd25875ed1bb5f038d9c2",
+      "byte_size": 210311
+    },
+    {
+      "source_key": "prts:roguelike:433770",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=433770",
+      "revision": "433770",
+      "content_hash": "078a633d39c5bb8b57d30298375775f66b415ff3f5f7b0b00e0f0a10e7c0830c",
+      "byte_size": 175226
+    },
+    {
+      "source_key": "prts:roguelike:439381",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439381",
+      "revision": "439381",
+      "content_hash": "fe03dfcbf8b2e3565a9da06ea982e1040b19514ce329c9de54524e4718c7d11a",
+      "byte_size": 186144
+    },
+    {
+      "source_key": "prts:roguelike:439383",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439383",
+      "revision": "439383",
+      "content_hash": "2012670084018b39a26dc5fe53ae102215ff36ed68749dcdaad30ca8c0ababe8",
+      "byte_size": 137466
+    },
+    {
+      "source_key": "prts:roguelike:439385",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439385",
+      "revision": "439385",
+      "content_hash": "1591148195c34f9de37e11a571cfbb28988dbdf6eae4b5ffee98db385290250e",
+      "byte_size": 135279
+    },
+    {
+      "source_key": "prts:roguelike:439386",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439386",
+      "revision": "439386",
+      "content_hash": "342709b95ede6697d25ac0bd97f22cb952e27a58109b625429e5de9a27498282",
+      "byte_size": 132454
+    },
+    {
+      "source_key": "prts:roguelike:439563",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439563",
+      "revision": "439563",
+      "content_hash": "b28917e0a91a9bf5563eb16bf4f97e533554eaa94d9a349ca9fb1cc9acc331b7",
+      "byte_size": 130657
+    },
+    {
+      "source_key": "prts:roguelike:439701",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439701",
+      "revision": "439701",
+      "content_hash": "a3bc3f561c0e556476c0f666ea0d07937c372795e6096aa3b6c29cdae4f16154",
+      "byte_size": 191839
+    },
+    {
+      "source_key": "prts:roguelike:440271",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=440271",
+      "revision": "440271",
+      "content_hash": "98e376e397f4e635a79d5b8d3e88c314ecde5b912bd867bc76ef3256ebd36ce3",
+      "byte_size": 83738
+    },
+    {
+      "source_key": "prts:roguelike:440803",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=440803",
+      "revision": "440803",
+      "content_hash": "f7b6156300bfe0f777c592b93178b50b159babc605b9d70e77e98730c1580ae3",
+      "byte_size": 108158
+    }
+  ]
+}

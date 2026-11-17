@@ -1,0 +1,336 @@
+{
+  "pins": [
+    {
+      "title": "刻俄柏的灰蕈迷境",
+      "page_id": 19784,
+      "revision": 430544,
+      "timestamp": "2026-10-01T03:02:16Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=430544",
+      "sha256": "6da78b1e8f403a3afd70f1a03fb627bd5f9f1ef1c8a8501c985ca4cbccd3a219",
+      "byte_size": 36165,
+      "theme_id": "act12d6",
+      "category": "discovery",
+      "source_key": "prts:roguelike:430544"
+    },
+    {
+      "title": "傀影与猩红孤钻",
+      "page_id": 36749,
+      "revision": 440803,
+      "timestamp": "2026-10-11T06:51:18Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=440803",
+      "sha256": "f7b6156300bfe0f777c592b93178b50b159babc605b9d70e77e98730c1580ae3",
+      "byte_size": 108158,
+      "theme_id": "rogue_1",
+      "category": "discovery",
+      "source_key": "prts:roguelike:440803"
+    },
+    {
+      "title": "水月与深蓝之树",
+      "page_id": 45405,
+      "revision": 431166,
+      "timestamp": "2026-10-01T03:55:45Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431166",
+      "sha256": "3bf4086f8021dd1a7f40325faaf79c8eaf5ed1dcb6e401c0d57d9c35ac9df2b5",
+      "byte_size": 133614,
+      "theme_id": "rogue_2",
+      "category": "discovery",
+      "source_key": "prts:roguelike:431166"
+    },
+    {
+      "title": "探索者的银凇止境",
+      "page_id": 56399,
+      "revision": 431095,
+      "timestamp": "2026-10-01T03:52:07Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431095",
+      "sha256": "45b0d80a8e71cd61f5c9cd35b9c34d70b84bd5e12615f08fbfb0e53ff5fadb96",
+      "byte_size": 143059,
+      "theme_id": "rogue_3",
+      "category": "discovery",
+      "source_key": "prts:roguelike:431095"
+    },
+    {
+      "title": "萨卡兹的无终奇语",
+      "page_id": 69272,
+      "revision": 432748,
+      "timestamp": "2026-10-01T16:20:05Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432748",
+      "sha256": "a84611acdea7711a0b5c1f77cf76bc4f896f2d438626c2e5c022ad5894c7ab19",
+      "byte_size": 226665,
+      "theme_id": "rogue_4",
+      "category": "discovery",
+      "source_key": "prts:roguelike:432748"
+    },
+    {
+      "title": "岁的界园志异",
+      "page_id": 80563,
+      "revision": 432729,
+      "timestamp": "2026-10-01T16:18:20Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432729",
+      "sha256": "be4e894a408e349a712cdc44b7d6bdb79a9766d95972565461769dbdbe8b51c3",
+      "byte_size": 267130,
+      "theme_id": "rogue_5",
+      "category": "discovery",
+      "source_key": "prts:roguelike:432729"
+    },
+    {
+      "title": "沉沦者的黑流树海",
+      "page_id": 94004,
+      "revision": 433770,
+      "timestamp": "2026-10-03T20:21:20Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=433770",
+      "sha256": "078a633d39c5bb8b57d30298375775f66b415ff3f5f7b0b00e0f0a10e7c0830c",
+      "byte_size": 175226,
+      "theme_id": "rogue_6",
+      "category": "discovery",
+      "source_key": "prts:roguelike:433770"
+    },
+    {
+      "title": "刻俄柏的灰蕈迷境/事件一览",
+      "page_id": 20892,
+      "revision": 236347,
+      "timestamp": "2022-10-24T14:29:36Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=236347",
+      "sha256": "9b404c227c751dd43881292be1d1c07570c5edfd4b92d9dcccad7e8399d99faf",
+      "byte_size": 34711,
+      "theme_id": "act12d6",
+      "category": "events",
+      "source_key": "prts:roguelike:236347"
+    },
+    {
+      "title": "傀影与猩红孤钻/事件一览",
+      "page_id": 37471,
+      "revision": 427726,
+      "timestamp": "2026-09-11T11:37:26Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=427726",
+      "sha256": "d3a359b86335d156a51816fcd201ed54945cce249c69dbc2a57882821e9278d8",
+      "byte_size": 66563,
+      "theme_id": "rogue_1",
+      "category": "events",
+      "source_key": "prts:roguelike:427726"
+    },
+    {
+      "title": "水月与深蓝之树/事件一览",
+      "page_id": 45846,
+      "revision": 408461,
+      "timestamp": "2026-07-13T22:54:48Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=408461",
+      "sha256": "b83c456626bc64ca2c8743fece33312ce9dd65e9a528bf3f22f09850a3e66dbf",
+      "byte_size": 95064,
+      "theme_id": "rogue_2",
+      "category": "events",
+      "source_key": "prts:roguelike:408461"
+    },
+    {
+      "title": "探索者的银凇止境/事件一览",
+      "page_id": 56900,
+      "revision": 408462,
+      "timestamp": "2026-07-13T22:54:52Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=408462",
+      "sha256": "70a6695d4d9dbe5fd111b0ca9c695221e75f29d08ae9cd955400a34afaec3363",
+      "byte_size": 106683,
+      "theme_id": "rogue_3",
+      "category": "events",
+      "source_key": "prts:roguelike:408462"
+    },
+    {
+      "title": "萨卡兹的无终奇语/事件一览",
+      "page_id": 69381,
+      "revision": 428149,
+      "timestamp": "2026-09-15T13:18:58Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=428149",
+      "sha256": "9dbf051e9b9fd130416fff120cb41e4fc878f3d426d10cb7e104245acc3d2855",
+      "byte_size": 108803,
+      "theme_id": "rogue_4",
+      "category": "events",
+      "source_key": "prts:roguelike:428149"
+    },
+    {
+      "title": "岁的界园志异/事件一览",
+      "page_id": 81188,
+      "revision": 432913,
+      "timestamp": "2026-10-02T02:53:47Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=432913",
+      "sha256": "9bcca88338be65fc7dc79b1d00b9d5639c6e681d33dcd25875ed1bb5f038d9c2",
+      "byte_size": 210311,
+      "theme_id": "rogue_5",
+      "category": "events",
+      "source_key": "prts:roguelike:432913"
+    },
+    {
+      "title": "沉沦者的黑流树海/事件一览",
+      "page_id": 94010,
+      "revision": 440271,
+      "timestamp": "2026-10-10T02:15:11Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=440271",
+      "sha256": "98e376e397f4e635a79d5b8d3e88c314ecde5b912bd867bc76ef3256ebd36ce3",
+      "byte_size": 83738,
+      "theme_id": "rogue_6",
+      "category": "events",
+      "source_key": "prts:roguelike:440271"
+    },
+    {
+      "title": "刻俄柏的灰蕈迷境/收藏品图鉴",
+      "page_id": 20888,
+      "revision": 430546,
+      "timestamp": "2026-10-01T03:02:22Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=430546",
+      "sha256": "11a08af348eda4dd1d435d7f2e45fa6fa7c7a83fd43eee8fabed158208d52cde",
+      "byte_size": 60436,
+      "theme_id": "act12d6",
+      "category": "relics",
+      "source_key": "prts:roguelike:430546"
+    },
+    {
+      "title": "傀影与猩红孤钻/长生者宝盒",
+      "page_id": 37083,
+      "revision": 439386,
+      "timestamp": "2026-10-07T10:00:20Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439386",
+      "sha256": "342709b95ede6697d25ac0bd97f22cb952e27a58109b625429e5de9a27498282",
+      "byte_size": 132454,
+      "theme_id": "rogue_1",
+      "category": "relics",
+      "source_key": "prts:roguelike:439386"
+    },
+    {
+      "title": "水月与深蓝之树/生物制品陈设",
+      "page_id": 45984,
+      "revision": 439385,
+      "timestamp": "2026-10-07T09:59:42Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439385",
+      "sha256": "1591148195c34f9de37e11a571cfbb28988dbdf6eae4b5ffee98db385290250e",
+      "byte_size": 135279,
+      "theme_id": "rogue_2",
+      "category": "relics",
+      "source_key": "prts:roguelike:439385"
+    },
+    {
+      "title": "探索者的银凇止境/仪式用品索引",
+      "page_id": 56402,
+      "revision": 439383,
+      "timestamp": "2026-10-07T09:58:42Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439383",
+      "sha256": "2012670084018b39a26dc5fe53ae102215ff36ed68749dcdaad30ca8c0ababe8",
+      "byte_size": 137466,
+      "theme_id": "rogue_3",
+      "category": "relics",
+      "source_key": "prts:roguelike:439383"
+    },
+    {
+      "title": "萨卡兹的无终奇语/想象实体图鉴",
+      "page_id": 69471,
+      "revision": 439381,
+      "timestamp": "2026-10-07T09:57:48Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439381",
+      "sha256": "fe03dfcbf8b2e3565a9da06ea982e1040b19514ce329c9de54524e4718c7d11a",
+      "byte_size": 186144,
+      "theme_id": "rogue_4",
+      "category": "relics",
+      "source_key": "prts:roguelike:439381"
+    },
+    {
+      "title": "岁的界园志异/珍玩集册",
+      "page_id": 81014,
+      "revision": 439701,
+      "timestamp": "2026-10-08T17:21:01Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439701",
+      "sha256": "a3bc3f561c0e556476c0f666ea0d07937c372795e6096aa3b6c29cdae4f16154",
+      "byte_size": 191839,
+      "theme_id": "rogue_5",
+      "category": "relics",
+      "source_key": "prts:roguelike:439701"
+    },
+    {
+      "title": "沉沦者的黑流树海/拟造物质编目",
+      "page_id": 94007,
+      "revision": 439563,
+      "timestamp": "2026-10-07T19:17:10Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=439563",
+      "sha256": "b28917e0a91a9bf5563eb16bf4f97e533554eaa94d9a349ca9fb1cc9acc331b7",
+      "byte_size": 130657,
+      "theme_id": "rogue_6",
+      "category": "relics",
+      "source_key": "prts:roguelike:439563"
+    },
+    {
+      "title": "探索者的银凇止境/深入调查",
+      "page_id": 60512,
+      "revision": 431100,
+      "timestamp": "2026-10-01T03:52:50Z",
+      "url": "https://prts.wiki/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&format=json&formatversion=2&revids=431100",
+      "sha256": "d75e748c3294e517f9385574da2bf49b283a9d52dc5444bd07082a8ad4fda5ce",
+      "byte_size": 59735,
+      "theme_id": "rogue_3",
+      "category": "discovery",
+      "source_key": "prts:roguelike:431100"
+    }
+  ],
+  "ending_routes": [
+    {
+      "theme_id": "act12d6",
+      "name": "迷尘幻梦",
+      "revision": 430544,
+      "start": 10183,
+      "end": 10250,
+      "quote": "在任意难度下完成关卡[[ISW-DF 荒地群猎]]<br>且完成时未持有收藏品[[刻俄柏的灰蕈迷境/收藏品图鉴#“手铳”|“手铳”]]"
+    },
+    {
+      "theme_id": "rogue_1",
+      "name": "舞会终场",
+      "revision": 440803,
+      "start": 32564,
+      "end": 32609,
+      "quote": "在任意难度且未持有收藏品【恍悟】和【初幕】的情况下，完成关卡[[ISW-DF 覆水难收]]"
+    },
+    {
+      "theme_id": "rogue_2",
+      "name": "平凡即是喜乐",
+      "revision": 431166,
+      "start": 48316,
+      "end": 48368,
+      "quote": "在任意难度且未持有【深蓝之心】【决心】【观望】或【犹疑】的情况下完成关卡[[ISW-DF 认知即重担]]"
+    },
+    {
+      "theme_id": "rogue_3",
+      "name": "越过群山",
+      "revision": 431095,
+      "start": 27743,
+      "end": 27979,
+      "quote": "'''进入方式'''\n* 第5层的倒数第2个节点固定为【命运所指】，事件固定为[[探索者的银凇止境/事件一览#走过萨米的臂膀|'''走过萨米的臂膀''']]。\n* （非必须）[[探索者的银凇止境/事件一览#走过萨米的臂膀|'''走过萨米的臂膀''']]：在该事件中选择【前进】。\n* 以不持有【无垠赠礼】或【维度流质】的状态通过第5层【[[ISW-DF 巍峨银凇|巍峨银凇]]】（挑战自然·12+难度可能为【[[ISW-DF 深寒造像|深寒造像]]】），即可完成游戏结局。"
+    },
+    {
+      "theme_id": "rogue_4",
+      "name": "憧憬未来",
+      "revision": 432748,
+      "start": 74977,
+      "end": 75195,
+      "quote": "'''进入方式'''\n* 第5层的倒数第2个节点固定为【命运所指】，事件固定为[[萨卡兹的无终奇语/事件一览#尾页|'''尾页''']]。\n* [[萨卡兹的无终奇语/事件一览#尾页|'''尾页''']]：在该事件中'''不报出魔王的名讳'''。\n* 以不持有【时与光】【阿纳萨羯磨】【无终之钥】的状态通过第5层【[[ISW-DF 紧急授课|紧急授课]]】或其滚动先祖升级版【[[ISW-DF 思维矫正|思维矫正]]】，即可完成游戏结局。"
+    },
+    {
+      "theme_id": "rogue_5",
+      "name": "依律镇抚",
+      "revision": 432729,
+      "start": 101703,
+      "end": 101879,
+      "quote": "'''进入方式'''\n* 第5层的倒数第2个节点固定为【命运所指】，事件固定为'''祠堂口'''。\n* '''[[岁的界园志异/事件一览#祠堂口|祠堂口]]'''：在该事件中直接'''行仪'''。\n* 通过与[[易]]对决的【[[ISW-DF 破岁阵祀|破岁阵祀]]】，且以不持有【云与漆】【无墨长卷】【“小磨唧”】的状态通过第5层，即可完成游戏结局。"
+    },
+    {
+      "theme_id": "rogue_6",
+      "name": "强制重启",
+      "revision": 433770,
+      "start": 67571,
+      "end": 67682,
+      "quote": "'''进入方式'''\n* 通过与[[卡德霍，黑流之源]]对决的【[[ISW-DF 永无安宁|永无安宁]]】或其追猎版本【[[ISW-DF 痛苦将息|痛苦将息]]】，且以不持有【怦然信标】的状态通过第Ⅴ层，即可完成游戏结局。"
+    }
+  ],
+  "event_context": [
+    {
+      "theme_id": "rogue_6",
+      "native_scene_id": "scene_ro6_scout_enter",
+      "revision": 433770,
+      "start": 85942,
+      "end": 86129,
+      "quote": "* ''事件'' {{color|#1d7767|先行一步}}\n: ''总有人要走在前头，好为后来的人指明道路。''\n: 可以选择一名当前招募的干员暂时离队。该干员将在下一层开始时归来。\n: 在点亮【生命游戏】的“喙”节点后，干员归来时还可获得随机加工品。\n: ※可不选择干员并“确认”重新选择选项；若不派遣干员则可选择获得2希望。\n: ※该节点不会在第I，V，VI层出现。"
+    }
+  ]
+}

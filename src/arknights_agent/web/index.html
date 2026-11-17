@@ -1,0 +1,227 @@
+<!doctype html>
+<html id="app-root" lang="zh-CN" data-ark-theme="popucom" data-ark-depth="maximal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="明日方舟固定资料问答工作台。查询、追问，并回到每一条回答的原始来源。">
+  <title>方舟档案 · 问答工作台</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath fill='%23080a0b' d='M0 0h40v40H0z'/%3E%3Cpath fill='%2318d1ff' d='m9 29 11-20 11 20h-7l-4-8-4 8z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/styles.css?v=__STYLE_VERSION__">
+  <script src="/assets/app.js?v=__APP_VERSION__" defer></script>
+  <script src="/assets/game-tools.js?v=__TOOLS_VERSION__" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#question">跳到提问</a>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1.6-3.2 1.5 1.5 0 0 1 1.2-2.4H18a3 3 0 0 0 3-3C21 7 17 3 12 3Z"/><circle cx="7" cy="10" r=".7"/><circle cx="11" cy="7" r=".7"/><circle cx="16" cy="9" r=".7"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 4h14v12H9l-4 4V4Z"/><path d="M8 8h8M8 12h5"/></symbol>
+      <symbol id="i-archive" viewBox="0 0 24 24"><path d="M4 4h16v5H4zM6 9v11h12V9M9 13h6"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m5 11 7-7 7 7M12 4v16"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+      <symbol id="i-source" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+      <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></symbol>
+    </defs>
+  </svg>
+  <div class="app-shell">
+    <div class="nav-backdrop" id="nav-backdrop" hidden></div>
+    <aside class="sidebar" id="sidebar" aria-label="工作区导航">
+      <a class="brand" href="/" aria-label="方舟档案首页">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span></span>
+        <span><strong>方舟档案</strong></span>
+      </a>
+      <button class="new-chat" id="new-chat"><svg><use href="#i-plus"/></svg>新对话</button>
+      <nav class="navigation" aria-label="主要功能">
+        <button data-view="chat" class="nav-item active" aria-current="page"><svg><use href="#i-chat"/></svg>问答工作台</button>
+        <button data-view="library" class="nav-item"><svg><use href="#i-archive"/></svg>资料检索</button>
+        <button data-view="saved" class="nav-item"><svg><use href="#i-bookmark"/></svg>我的档案<span class="saved-nav-count" id="saved-count">0</span></button>
+        <button data-view="tools" class="nav-item"><svg><use href="#i-archive"/></svg>战术工具<span class="tool-new">新</span></button>
+      </nav>
+      <div class="history-heading"><span>最近对话</span><small id="history-count">0</small></div>
+      <label class="history-search"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="history-search" type="search" placeholder="查找对话" aria-label="查找最近对话" autocomplete="off"></label>
+      <div class="history-list" id="history-list"><p class="history-empty">暂无对话</p></div>
+      <div class="sidebar-bottom">
+        <button data-view="help" class="nav-item"><svg><use href="#i-info"/></svg>使用说明<svg class="small-icon"><use href="#i-arrow"/></svg></button>
+      </div>
+    </aside>
+    <main class="workspace" id="workspace">
+      <header class="topbar">
+        <div class="breadcrumb"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="打开导航" aria-expanded="false"><svg><use href="#i-menu"/></svg></button><div class="view-location"><strong id="view-title">问答工作台</strong></div></div>
+        <div class="topbar-actions"><button id="open-appearance" class="appearance-trigger" type="button" aria-label="切换皮肤" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-palette"/></svg><span>皮肤</span></button><button class="account-trigger" id="open-account" aria-label="查看账户与用量" aria-haspopup="dialog"><span id="account-trigger-label" class="account-trigger-label">余额</span><span id="account-chip">—</span></button><button class="connection" id="connection" title="查看资料版本"><span class="connection-dot"></span><svg class="connection-mobile-icon" aria-hidden="true"><use href="#i-archive"/></svg><span id="connection-label">连接中</span><svg class="connection-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+      </header>
+      <aside id="balance-alert" class="balance-alert" aria-label="低余额提醒" hidden><p id="balance-alert-text" role="status"></p><div><button id="balance-alert-open" type="button">查看账户</button><button id="balance-alert-snooze" type="button">1 小时后提醒</button></div></aside>
+      <section class="chat-view view" id="chat-view" aria-label="问答工作台">
+        <div class="conversation-scroll" id="conversation-scroll">
+          <div class="welcome" id="welcome">
+            <header class="hero-row">
+              <div class="hero-copy">
+                <h1>从一个<br class="pop-title-break">问题开始<span aria-hidden="true">。</span></h1>
+                <p class="hero-description">查干员、公招和玩法资料，沿着原文继续追问。</p>
+              </div>
+              <div class="pop-stage" aria-hidden="true"><span class="pop-orbit"></span><span class="pop-block pop-block-blue"></span><span class="pop-block pop-block-yellow"></span><span class="pop-block pop-block-orange"></span><span class="pop-star"></span></div>
+            </header>
+            <div class="topic-bar" aria-label="选择提问范围"><div class="topic-tabs"><button type="button" data-example-module="auto" aria-pressed="true">全部</button><button type="button" data-example-module="operator" aria-pressed="false">干员</button><button type="button" data-example-module="recruitment" aria-pressed="false">公招</button><button type="button" data-example-module="roguelike" aria-pressed="false">集成战略</button><button type="button" data-example-module="garrison" aria-pressed="false">卫戍</button></div></div>
+            <div class="suggestions-heading"><h2>示例问题</h2></div>
+            <div class="suggestion-list">
+              <button class="suggestion" data-module="operator" data-question="能天使三技能专三，初始技力和消耗分别是多少？"><span class="suggestion-text"><small>干员资料</small><strong>能天使三技能专三，开局有多少技力？</strong></span><svg><use href="#i-arrow"/></svg></button>
+              <button class="suggestion" data-module="recruitment" data-question="公招有近战位、治疗，九小时，只看这两个标签一起选的候选。"><span class="suggestion-text"><small>公开招募</small><strong>近战位和治疗一起选，九小时能招到谁？</strong></span><svg><use href="#i-arrow"/></svg></button>
+              <button class="suggestion" data-module="roguelike" data-question="萨米肉鸽里金酒之杯有什么用？"><span class="suggestion-text"><small>集成战略</small><strong>萨米肉鸽里的金酒之杯，有什么作用？</strong></span><svg><use href="#i-arrow"/></svg></button>
+              <button class="suggestion" data-module="garrison" data-question="卫戍协议商业阶段的出售次数配置是多少？"><span class="suggestion-text"><small>卫戍协议</small><strong>商业阶段的出售次数，资料中如何配置？</strong></span><svg><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+          <div class="messages" id="messages" aria-label="对话记录" aria-live="polite" aria-relevant="additions"></div>
+        </div>
+        <div class="composer-dock">
+          <div class="conversation-tools" id="conversation-tools" hidden><button id="open-turn-index" type="button" class="turn-index-trigger"><svg aria-hidden="true"><use href="#i-chat"/></svg>对话目录<span id="turn-index-count"></span><span aria-hidden="true">↗</span></button><button id="reading-reference" type="button" class="reading-reference" hidden></button><button id="jump-latest" type="button" class="jump-latest" hidden>回到最新 ↓</button><span id="reading-note" class="reading-note" hidden></span></div>
+          <div class="context-strip" id="context-strip" hidden><span class="context-line"></span><span id="context-label"></span><button id="latest-draft" type="button" hidden>接着最新回答</button><button id="detach-context">另起话题</button></div>
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="question">输入你的问题</label>
+            <textarea id="question" name="question" rows="2" maxlength="2000" placeholder="输入问题…" aria-describedby="input-hint mode-note" required></textarea>
+            <div class="composer-editing"><span id="draft-status"></span><span id="input-hint">Enter 发送 · Shift + Enter 换行</span></div>
+            <div class="composer-bottom"><div class="composer-controls"><label class="module-picker"><svg><use href="#i-archive"/></svg><select id="module" aria-label="查询模块"><option value="auto">自动识别</option><option value="roguelike">集成战略</option><option value="operator">干员资料</option><option value="recruitment">公开招募</option><option value="garrison">卫戍协议</option></select></label><div class="backend-picker model-switcher" id="model-switcher"><input id="backend" type="hidden" value="deepseek"><button type="button" id="composer-model" class="composer-model" aria-label="选择模型" aria-expanded="false" aria-haspopup="dialog" aria-controls="model-menu"><span class="model-status-dot" aria-hidden="true"></span><span id="composer-model-name">选择模型</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button><span id="backend-status" class="sr-only" role="status" aria-live="polite">模型暂停</span><div id="model-menu" class="model-menu" role="dialog" aria-label="切换模型" hidden><div class="model-menu-heading"><span>切换模型</span><button type="button" id="close-model-menu" aria-label="关闭模型选择">×</button></div><div id="model-menu-options" class="model-menu-options"></div><p id="model-menu-feedback" role="status" hidden></p><button type="button" id="model-menu-manage" class="model-menu-manage">管理模型<span aria-hidden="true">→</span></button></div></div></div><span id="character-count" class="character-count">0 / 2000</span><div class="composer-send-actions"><div id="context-meter-wrap" class="context-meter-wrap"><button type="button" id="context-meter" class="context-meter" aria-label="查看上下文用量" aria-expanded="false" aria-controls="context-bubble"><span class="context-ring" aria-hidden="true"><svg viewBox="0 0 40 40"><circle class="context-ring-track" cx="20" cy="20" r="16"/><circle id="context-ring-fill" class="context-ring-fill" cx="20" cy="20" r="16" pathLength="100"/></svg></span></button><span id="context-bubble" class="context-bubble" role="status" hidden>—/—</span></div><button type="submit" class="send-button" id="send-button" aria-label="发送问题" disabled><span>发送</span><svg><use href="#i-send"/></svg></button></div></div>
+          </form>
+          <div class="composer-footnote"><span id="mode-note">模型对话暂停，可在资料检索浏览已有资料。</span><div class="composer-footnote-actions"><button id="pending-new-chat" type="button" hidden>保留记录，开启新对话</button><button id="recheck-task" type="button" hidden>检查原任务状态</button><button id="model-status-details" type="button" hidden>查看原因</button><button id="refresh-model" type="button">刷新模型状态</button></div></div>
+        </div>
+        <aside class="session-dossier" id="session-dossier" aria-label="查询与来源侧栏">
+          <div id="welcome-dossier"></div>
+          <div id="active-dossier" hidden><p class="dossier-kicker">当前对话</p><h2 id="dossier-title">查询线索</h2><dl class="dossier-facts"><div><dt>资料范围</dt><dd id="dossier-module">自动识别</dd></div><div><dt>已保存轮次</dt><dd id="dossier-turns">0</dd></div></dl><p id="dossier-state" class="dossier-state">尚无回答</p><nav class="turn-index" id="turn-index" aria-label="本段对话目录" hidden><h3 class="dossier-sources-label">对话目录</h3><label class="turn-index-search"><span class="sr-only">查找本段对话</span><input id="turn-index-search" type="search" placeholder="轮次或原问题" aria-label="查找本段对话" aria-controls="turn-index-list" maxlength="160" autocomplete="off"></label><p id="turn-index-feedback" class="turn-index-feedback" role="status"></p><div id="turn-index-list" class="turn-index-scroll"></div></nav><h3 class="dossier-sources-label" id="dossier-sources-heading">最新一轮 · 来源与记录</h3><div id="dossier-sources"></div></div>
+        </aside>
+      </section>
+      <section class="library-view view" id="library-view" hidden aria-labelledby="library-title">
+        <header class="view-heading library-heading"><div><h1 id="library-title">资料检索</h1></div></header>
+        <form id="library-form" class="library-search"><label class="sr-only" for="library-query">资料名称</label><input id="library-query" placeholder="输入藏品、事件或干员名称" maxlength="120"><select id="library-module" aria-label="资料模块"><option value="">全部资料</option><option value="roguelike">集成战略</option><option value="operator">干员资料</option><option value="garrison">卫戍协议</option><option value="recruitment">公开招募</option></select><button type="submit">检索 <span>↗</span></button></form>
+        <div id="library-results" aria-live="polite"><div class="library-empty"><svg><use href="#i-archive"/></svg><p>试试搜索「残破的玩偶」「变化」或「能天使」。</p></div></div><button class="load-more" id="load-more" hidden>继续加载</button>
+      </section>
+      <section class="tools-view view" id="tools-view" hidden aria-labelledby="tools-title">
+        <h1 id="tools-title" class="sr-only">战术工具</h1>
+        <nav class="tool-tabs" aria-label="战术工具"><button id="squad-tab" type="button" aria-pressed="true">配队沙盘</button><button id="recruit-tab" type="button" aria-pressed="false">公招助手</button></nav>
+        <div id="squad-tool" class="tool-panel"></div><div id="recruit-tool" class="tool-panel" hidden></div>
+      </section>
+      <section class="saved-view view" id="saved-view" hidden aria-labelledby="saved-title">
+        <div id="saved-library">
+          <header class="view-heading saved-heading"><div><p class="saved-kicker">把线索留住</p><h1 id="saved-title">我的档案</h1><p class="saved-intro">收藏有用的回答，随时回看原文与来源。</p></div><span class="saved-device-label">保存在当前浏览器</span></header>
+          <div class="saved-tools"><label><span class="sr-only">搜索收藏</span><input id="saved-search" type="search" placeholder="搜索问题或摘录" maxlength="160" autocomplete="off"></label><select id="saved-module" aria-label="筛选收藏模块"><option value="all">全部模块</option><option value="operator">干员资料</option><option value="recruitment">公开招募</option><option value="roguelike">集成战略</option><option value="garrison">卫戍协议</option><option value="auto">综合问答</option></select></div>
+          <p id="saved-feedback" class="saved-feedback" role="status"></p>
+          <div id="saved-list" class="saved-list"></div>
+        </div>
+        <section id="saved-reader" class="saved-reader" hidden aria-label="收藏的回答"></section>
+      </section>
+      <section class="help-view view" id="help-view" hidden aria-labelledby="help-title">
+        <header class="view-heading help-heading"><h1 id="help-title">使用说明</h1><button type="button" class="text-action" id="replay-tour">重看新手引导</button></header><div class="help-grid">
+        <div class="help-section"><div><h2>直接提问</h2><p>说明对象、主题和条件。同名场景可选择候选继续查看；查询不会操作游戏。</p></div></div>
+        <div class="help-section"><div><h2>继续追问</h2><p>同一对话沿用前轮。切换资料范围可“另起话题”；最近列表保存在本机，回答按查询记录恢复。</p></div></div>
+        <div class="help-section"><div><h2>核对来源</h2><p>点击来源可查看字段、原文与快照。固定资料不代表当前线上版本；未记载的内容保持未知。</p></div></div>
+        <div class="help-section"><div><h2>费用与任务</h2><p>模型查询会产生 API 费用，资料检索不调用模型。断线或超时后只检查原任务，结果未知时暂停继续付费；调用次数与挂账持续保留。</p></div></div>
+        </div><button class="text-action" id="help-version">查看当前资料版本 ↗</button>
+      </section>
+    </main>
+  </div>
+  <dialog id="workbench-tour" aria-label="新手引导" aria-describedby="tour-title tour-description">
+    <div id="tour-spot" aria-hidden="true"></div>
+    <section id="tour-card">
+      <div class="tour-toolbar"><span id="tour-count"></span><button id="tour-skip" type="button">跳过</button></div>
+      <div aria-live="polite" aria-atomic="true"><h2 id="tour-title"></h2><p id="tour-description"></p></div>
+      <div class="tour-actions"><button id="tour-back" type="button">上一步</button><button id="tour-next" type="button" autofocus>下一步</button></div>
+    </section>
+  </dialog>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title"><div class="detail-header"><div><h2 id="detail-title">来源详情</h2></div><button class="icon-button" id="close-detail" aria-label="关闭详情"><svg><use href="#i-close"/></svg></button></div><div class="detail-body" id="detail-body"></div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><div class="noscript-notice">请启用 JavaScript 以查询资料和查看来源。后端接口文档位于 <a href="/docs">/docs</a>。</div></noscript>
+  <dialog id="account-dialog" class="detail-dialog account-dialog" aria-labelledby="account-title">
+    <div class="detail-header"><h2 id="account-title">账户与用量</h2><button id="close-account" class="icon-button" aria-label="关闭账户面板"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="detail-body account-body">
+      <section id="account-balance-section" class="account-balance" aria-label="服务账户余额">
+        <div class="account-section-heading"><span id="account-provider-title">服务账户</span><button id="account-privacy" class="text-action" aria-pressed="false">隐去金额</button></div>
+        <strong id="account-total" class="account-total">—</strong>
+        <div id="account-breakdown" class="account-breakdown"><span>充值 <b id="account-topup">—</b></span><span>赠送 <b id="account-granted">—</b></span></div>
+        <p id="account-message" class="account-message" role="status">正在读取账户…</p>
+        <a id="account-billing-link" class="text-action account-billing-link" href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noopener noreferrer" hidden>查看 OpenAI 余额与账单</a>
+        <div class="account-refresh-row"><time id="account-checked">尚未更新</time><button id="account-refresh" class="text-action">刷新余额</button></div>
+      </section>
+      <section class="account-credential" aria-label="模型服务管理"><div><strong>模型服务</strong><p id="credential-status" class="account-message">正在读取配置…</p></div><button id="manage-provider" class="text-action" type="button">管理模型与密钥</button><button id="manage-credential" class="text-action" type="button" hidden>管理密钥</button></section>
+      <details id="balance-alert-settings" class="account-alert-settings">
+        <summary><span id="balance-alert-title">低余额提醒</span><span id="balance-alert-state">已开启</span></summary>
+        <label class="balance-alert-toggle"><input id="balance-alert-enabled" type="checkbox" checked>开启页面提醒</label>
+        <form id="balance-alert-form" class="balance-alert-form" novalidate><label for="balance-alert-threshold">提醒线（元）</label><div><input id="balance-alert-threshold" type="text" inputmode="decimal" maxlength="8" autocomplete="off" aria-describedby="balance-alert-error" value="5.00"><button id="balance-alert-save" type="submit">保存</button></div><p id="balance-alert-error" class="balance-alert-error" role="status"></p></form>
+        <p id="balance-alert-summary" class="account-message"></p><button id="balance-alert-resume" class="text-action" type="button" hidden>恢复提醒</button>
+        <p id="balance-alert-storage" class="account-message" role="status" hidden>本机存储不可用，设置仅在当前页面生效。</p>
+        <p class="account-message">仅当前浏览器生效；不会暂停模型或自动充值。</p>
+      </details>
+      <section class="account-usage" aria-labelledby="account-usage-title">
+        <div class="account-section-heading"><h3 id="account-usage-title">本机用量</h3><span>北京时间</span></div>
+        <p id="account-usage-message" class="account-message" hidden></p>
+        <dl class="account-metrics">
+          <div><dt>今日调用</dt><dd id="usage-today">—</dd></div><div><dt>累计调用</dt><dd id="usage-total">—</dd></div>
+          <div><dt>今日保守计提</dt><dd id="usage-cost-today">—</dd></div><div><dt>累计保守计提</dt><dd id="usage-cost-total">—</dd></div>
+        </dl>
+        <p class="account-message">保守计提是本机记录，不代表实际扣款。</p>
+        <div id="provider-usage" class="account-message"></div><h4 class="account-chart-title">近 7 天调用</h4><ol id="account-days" class="account-days" aria-label="近七天本机模型调用次数"></ol>
+        <div class="account-holds"><span>待确认请求 <b id="usage-unknown">—</b></span><span>保留额度 <b id="usage-held">—</b></span></div>
+        <details class="account-notes"><summary>这些数字怎么算？</summary><p>服务支持余额接口时，每分钟刷新。服务未提供余额时只显示本机用量，不估算剩余充值。</p><p>调用次数仅统计本机网页模型请求，包含规划、复核和重试。保守计提按已记录用量计算，不是服务商实际扣款；保留额度包含旧挂账与在途请求，不会再次从余额中扣除。</p><p>已结算用量 <b id="usage-tokens">—</b> tokens。查询账户不会生成模型回答。</p></details>
+      </section>
+    </div>
+  </dialog>
+  <dialog id="credential-dialog" class="credential-dialog" aria-labelledby="credential-title">
+    <div class="detail-header"><h2 id="credential-title">先了解密钥安全</h2><button id="close-credential" class="icon-button" aria-label="关闭密钥设置"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="credential-body">
+      <section id="credential-warning">
+        <p class="credential-lead">API Token 等同账户密码。泄露后，他人可能使用你的额度并产生费用。</p>
+        <ul><li>只在你信任的部署电脑上填写；不要发到聊天、截图或公开仓库。</li><li>新保存的 Token 会在服务端加密存储，前端不会回显原值。</li><li>加密不替代主机安全；能控制部署电脑的人仍可能访问密钥。</li></ul>
+        <p id="credential-access-note" class="credential-access-note"></p>
+        <div class="credential-actions"><button id="credential-later" type="button">稍后设置</button><button id="credential-understand" class="credential-primary" type="button">我已了解，继续</button></div>
+      </section>
+      <section id="credential-editor" hidden>
+        <button id="credential-other-provider" type="button" class="text-action">设置其他 API 服务</button><p id="credential-existing" class="account-message"></p>
+        <form id="credential-form" novalidate><label for="credential-input">DeepSeek API Token</label><input id="credential-input" type="password" autocomplete="new-password" spellcheck="false" autocapitalize="none" autocorrect="off" maxlength="4096" aria-describedby="credential-help credential-feedback" placeholder="粘贴新的 API Token"><p id="credential-help" class="account-message">仅发送到部署电脑校验并保存。校验读取余额，不调用付费模型。</p><button id="credential-save" class="credential-primary" type="submit">校验并加密保存</button></form>
+        <details id="credential-remove-section" class="credential-remove" hidden><summary>移除本机配置</summary><p>只移除本机使用配置，不会撤销服务商密钥；历史计数和挂账保留。</p><label><input id="credential-remove-confirm" type="checkbox">确认移除，新问题将暂不能调用模型</label><button id="credential-remove" type="button" disabled>移除 Token</button></details>
+      </section>
+      <p id="credential-feedback" class="credential-feedback" role="status"></p><button id="credential-recheck" type="button" class="text-action" hidden>刷新配置状态</button>
+    </div>
+  </dialog>
+  <dialog id="appearance-dialog" class="appearance-dialog" aria-labelledby="appearance-title">
+    <div class="detail-header"><h2 id="appearance-title">选择皮肤</h2><button id="close-appearance" type="button" class="icon-button" aria-label="关闭皮肤设置"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <div class="appearance-options" role="group" aria-label="界面皮肤">
+      <button id="skin-popucom" class="skin-option" type="button" aria-pressed="true"><span class="skin-preview skin-preview-pop" aria-hidden="true"><i></i><i></i><i></i></span><span class="skin-option-name">泡姆泡姆<span class="skin-check" aria-hidden="true">✓</span></span><span class="skin-option-note">明快跳色</span></button>
+      <button id="skin-ark" class="skin-option" type="button" aria-pressed="false"><span class="skin-preview skin-preview-ark" aria-hidden="true"><i></i><i></i><i></i></span><span class="skin-option-name">方舟经典<span class="skin-check" aria-hidden="true">✓</span></span><span class="skin-option-note">克制留白</span></button>
+    </div><p id="appearance-feedback" class="appearance-feedback" role="status">选择会保存在当前浏览器。</p>
+  </dialog>
+  <dialog id="provider-dialog" class="credential-dialog provider-dialog" aria-labelledby="provider-title">
+    <div class="detail-header"><h2 id="provider-title">模型服务</h2><button id="close-provider" class="icon-button" aria-label="关闭模型服务">×</button></div>
+    <div class="credential-body">
+      <p id="provider-active" class="account-message"></p>
+      <div id="provider-list" class="provider-list" role="group" aria-label="选择模型服务"></div>
+      <label class="provider-label" hidden>服务商<select id="provider-protocol"><option value="deepseek">DeepSeek</option><option value="openai">OpenAI</option><option value="anthropic">Anthropic</option><option value="compatible">通用兼容</option></select></label>
+      <p id="provider-owner-note" class="account-message"></p>
+      <a id="provider-local-link" class="text-action" href="http://127.0.0.1:8000/" hidden>在部署电脑打开本机管理</a>
+      <form id="provider-form">
+        <fieldset id="provider-fields">
+          <label id="provider-url-label" class="provider-label">API 地址<input id="provider-url" type="url" autocomplete="off" placeholder="https://你的服务商/v1"></label>
+          <label class="provider-label">API Key<input id="provider-token" type="password" autocomplete="new-password" spellcheck="false" maxlength="2048" placeholder="输入密钥以连接"></label>
+          <div class="provider-connect"><span id="provider-key-state"></span><button id="provider-check" type="button">连接并读取模型</button></div>
+          <label class="provider-label">模型<select id="provider-model-choice" aria-describedby="provider-model-note"><option value="">先连接服务</option></select></label>
+          <label id="provider-model-label" class="provider-label" hidden>自定义模型 ID<input id="provider-model" autocomplete="off" spellcheck="false"></label>
+          <p id="provider-model-note" class="account-message"></p>
+          <details id="provider-advanced" class="provider-pricing"><summary>高级设置</summary>
+            <div class="provider-grid"><label class="provider-label">上下文上限<input id="provider-context" type="number" min="4096" max="1048576"></label><label class="provider-label">单次输出上限<input id="provider-output" type="number" min="1024" max="8192"></label></div>
+            <p class="account-message">参考计提，非账单。目录美元价按固定 8 倍换算并另留 10%；这是预留假设，不是实时汇率。通用服务按自身单价填写。</p>
+            <div class="provider-grid"><label class="provider-label">输入 · 元 / 百万 token<input id="provider-input-price" type="number" step="any" min="0.000001"></label><label class="provider-label">输出 · 元 / 百万 token<input id="provider-output-price" type="number" step="any" min="0.000001"></label></div>
+          </details>
+          <p class="account-message">密钥加密保存在部署电脑，仅发送给所选服务。</p>
+        </fieldset>
+        <div class="provider-actions"><button id="provider-save" class="credential-primary" type="submit">保存并使用</button></div>
+      </form>
+      <button id="provider-deepseek-key" class="text-action" type="button" hidden>管理密钥</button>
+      <button id="provider-remove" class="text-action" type="button">移除此服务配置</button>
+      <p id="provider-feedback" class="credential-feedback" role="status"></p>
+    </div>
+  </dialog>
+</body>
+</html>
