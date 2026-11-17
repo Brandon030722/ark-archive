@@ -1061,7 +1061,7 @@
           && !$("question").value && !document.querySelector("dialog[open]")
           && (!document.activeElement || document.activeElement === document.body)) {
         if (data.tour_pending) startTour();
-        else if (data.setup_required && (!data.can_manage || data.tour_pending === undefined)) openCredential();
+        else if (data.setup_required && data.can_manage && data.tour_pending === undefined) openCredential();
       }
       return true;
     } catch {
