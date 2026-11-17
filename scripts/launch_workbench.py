@@ -33,7 +33,7 @@ MODEL_STATUS = {
     "price_source_changed": "暂停，官方价格页面有变更，需要复核",
     "proof_refresh_failed": "暂停，无法完成官方价格的联网核验",
     "runtime_profile_unavailable": "暂停，模型来源凭据未通过核验",
-    "configuration_missing": "暂停，模型配置不完整",
+    "configuration_missing": "等待配置，在电脑浏览器的模型管理中添加自己的 Key",
     "runtime_policy_unavailable": "暂停，模型的启动检查未通过",
 }
 
@@ -123,6 +123,9 @@ def main():
             sys.exit("已有后台服务，无法确认项目目录。请用其他端口启动。")
         if Path(active_config.get("WorkingDirectory", "")).resolve() != ROOT.resolve():
             sys.exit("这个端口已由另一个方舟档案目录使用。请停止原服务或换一个端口。")
+    if args.status and registered and "--lan" in active_config["ProgramArguments"]:
+        address = wifi_ipv4()
+        mobile = f"http://{address}:{args.port}" if address else None
     change_mode = registered and not args.status and (("--lan" in active_config["ProgramArguments"]) != args.lan)
     if args.stop or change_mode:
         if registered:
