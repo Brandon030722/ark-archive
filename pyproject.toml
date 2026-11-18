@@ -13,6 +13,7 @@ dependencies = [
   "langgraph-checkpoint-sqlite>=3,<4",
   "psycopg[binary]>=3.2,<4",
   "pydantic-settings>=2.6,<3",
+  "pywin32>=311,<313 ; sys_platform == 'win32'",
   "sqlalchemy>=2.0,<2.1",
   "tokenizers>=0.21,<0.23",
   "uvicorn>=0.30,<1",

@@ -24,28 +24,58 @@ class CredentialError(Exception):
     pass
 
 
-def _private_dir(path):
-    path.mkdir(mode=0o700, parents=True, exist_ok=True)
-    info = path.lstat()
-    if not stat.S_ISDIR(info.st_mode) or info.st_uid != os.getuid() or info.st_mode & 0o077:
+_NOFOLLOW = getattr(os, "O_NOFOLLOW", 0)
+
+
+def _check_private(info, kind):
+    if not kind(info.st_mode):
+        raise CredentialError("credential_storage_unavailable")
+    if os.name == "nt":
+        if info.st_file_attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT:
+            raise CredentialError("credential_storage_unavailable")
+    elif info.st_uid != os.getuid() or info.st_mode & 0o077:
         raise CredentialError("credential_storage_unavailable")
 
 
+def _private_dir(path):
+    path.mkdir(mode=0o700, parents=True, exist_ok=True)
+    _check_private(path.lstat(), stat.S_ISDIR)
+
+
 def _read_private(path):
-    fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
+    if os.name == "nt":
+        _check_private(path.lstat(), stat.S_ISREG)
+    fd = os.open(path, os.O_RDONLY | _NOFOLLOW)
     with os.fdopen(fd, "rb") as stream:
         info = os.fstat(stream.fileno())
-        if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid()
-                or info.st_mode & 0o077 or info.st_size > 16384):
+        _check_private(info, stat.S_ISREG)
+        if info.st_size > 16384:
             raise CredentialError("credential_storage_unavailable")
         return stream.read(16385)
+
+
+def _windows_master_key(data, *, protect):
+    import pywintypes
+    import win32crypt
+
+    try:
+        if protect:
+            return win32crypt.CryptProtectData(data, "Ark Archive", None, None, None, 1)
+        return win32crypt.CryptUnprotectData(data, None, None, None, 1)[1]
+    except pywintypes.error:
+        raise CredentialError("credential_storage_unavailable") from None
+
+
+def _read_master_key(path):
+    data = _read_private(path)
+    return _windows_master_key(data, protect=False) if os.name == "nt" else data
 
 
 def _atomic_private(path, content):
     _private_dir(path.parent)
     temporary = path.with_name(f".{path.name}.{secrets.token_hex(12)}")
     try:
-        fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+        fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | _NOFOLLOW, 0o600)
         with os.fdopen(fd, "wb") as stream:
             stream.write(content)
             stream.flush()
@@ -63,7 +93,7 @@ class CredentialStore:
         if not self.path.exists() and not self.path.is_symlink():
             return None
         try:
-            payload = Fernet(_read_private(self.key_path)).decrypt(_read_private(self.path))
+            payload = Fernet(_read_master_key(self.key_path)).decrypt(_read_private(self.path))
             data = json.loads(payload)
             if not isinstance(data, dict) or set(data) != {"token", "updated_at"}:
                 raise ValueError()
@@ -80,18 +110,21 @@ class CredentialStore:
             if not self.key_path.exists():
                 if self.path.exists() or self.key_path.is_symlink():
                     raise CredentialError("credential_storage_unavailable")
+                master_key = Fernet.generate_key()
+                if os.name == "nt":
+                    master_key = _windows_master_key(master_key, protect=True)
                 # Exclusive creation avoids silently replacing another deployment's master key.
                 try:
-                    fd = os.open(self.key_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+                    fd = os.open(self.key_path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | _NOFOLLOW, 0o600)
                 except FileExistsError:
                     pass
                 else:
                     with os.fdopen(fd, "wb") as stream:
-                        stream.write(Fernet.generate_key())
+                        stream.write(master_key)
                         stream.flush()
                         os.fsync(stream.fileno())
             data = {"token": token, "updated_at": datetime.now(UTC).isoformat()}
-            encrypted = Fernet(_read_private(self.key_path)).encrypt(json.dumps(data).encode())
+            encrypted = Fernet(_read_master_key(self.key_path)).encrypt(json.dumps(data).encode())
             _atomic_private(self.path, encrypted)
             return data
         except (OSError, ValueError, TypeError):

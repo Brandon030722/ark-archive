@@ -28,3 +28,37 @@ jobs:
       - run: uv run python -m scripts.knowledge_bundle install
       - run: uv run python -m scripts.check_distribution
       - run: uv run python -m pytest -q -m 'not live'
+  windows-package:
+    runs-on: windows-2025
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build one-click Windows ZIP
+        shell: pwsh
+        run: |
+          $staging = Join-Path $env:RUNNER_TEMP 'ark-build'
+          $output = Join-Path $env:RUNNER_TEMP 'ark-output'
+          New-Item -ItemType Directory -Path $staging,$output | Out-Null
+          git archive --format=tar --prefix=Ark-Archive/ -o "$output/source.tar" HEAD
+          tar.exe -xf "$output/source.tar" -C $staging
+          . ./scripts/install_windows_tools.ps1
+          Install-ArkWindowsTools "$staging/Ark-Archive/vendor/windows"
+          tar.exe -a -cf "$output/Ark-Archive-Windows-x64.zip" -C $staging Ark-Archive
+          if ($LASTEXITCODE) { throw 'Failed to create Windows ZIP.' }
+      - name: Install extracted ZIP and restart the workbench
+        shell: pwsh
+        run: |
+          $output = Join-Path $env:RUNNER_TEMP 'ark-output'
+          $clean = Join-Path $env:RUNNER_TEMP 'clean Windows'
+          Expand-Archive -LiteralPath "$output/Ark-Archive-Windows-x64.zip" -DestinationPath $clean
+          npm install --prefix "$env:RUNNER_TEMP/ark-browser" playwright-core@1.58.2 --no-audit --no-fund
+          if ($LASTEXITCODE) { throw 'Failed to prepare browser test.' }
+          $env:ARK_PLAYWRIGHT_CORE = "$env:RUNNER_TEMP/ark-browser/node_modules/playwright-core"
+          Set-Location -LiteralPath "$clean/Ark-Archive"
+          if (Test-Path '.local') { throw 'Package contains local installation state.' }
+          node tests/windows_package.cjs
+          if ($LASTEXITCODE) { throw 'The Windows package failed its clean-install check.' }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Ark-Archive-Windows-x64
+          path: ${{ runner.temp }}/ark-output/Ark-Archive-Windows-x64.zip

@@ -32,9 +32,13 @@ def ensure_book(path: Path):
             pass
 
 
-if __name__ == "__main__":
-    configure_local_database()
+def prepare():
     migrate()
     cfg = Settings()
     install(cfg)
     ensure_book(cfg.model_budget_path)
+
+
+if __name__ == "__main__":
+    configure_local_database()
+    prepare()

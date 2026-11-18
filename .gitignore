@@ -21,3 +21,5 @@ docs/*
 *.enc
 *.pem
 *.key
+
+/vendor/windows/

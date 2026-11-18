@@ -23,6 +23,7 @@ from arknights_agent.config import Settings, semantic_review_required_seconds
 from .credentials import (
     CredentialStore,
     _atomic_private,
+    _read_master_key,
     _read_private,
     owner_local,
     validate_token,
@@ -89,7 +90,7 @@ class ProviderSettings:
         if self.path and (self.path.exists() or self.path.is_symlink()):
             try:
                 payload = json.loads(
-                    Fernet(_read_private(self.key_path)).decrypt(_read_private(self.path))
+                    Fernet(_read_master_key(self.key_path)).decrypt(_read_private(self.path))
                 )
                 if set(payload) != {"active", "connections"} or payload["active"] not in {
                     None, "deepseek",
@@ -141,7 +142,7 @@ class ProviderSettings:
             "connections": {k: v.model_dump(mode="json") for k, v in connections.items()},
         }
         _atomic_private(
-            self.path, Fernet(_read_private(self.key_path)).encrypt(json.dumps(data).encode())
+            self.path, Fernet(_read_master_key(self.key_path)).encrypt(json.dumps(data).encode())
         )
         self.active, self.connections, self.error = active, connections, None
         self.legacy_adopted = False
