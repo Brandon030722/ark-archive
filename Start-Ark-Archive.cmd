@@ -1,5 +1,6 @@
 @echo off
 setlocal
+set "PSModulePath="
 pushd "%~dp0" || exit /b 1
 powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File "scripts\bootstrap_windows.ps1" %*
 set "ark_exit=%ERRORLEVEL%"

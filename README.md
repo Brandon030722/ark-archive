@@ -3,23 +3,29 @@
 <p align="center"><strong>在自己的电脑上问明日方舟，点开来源，接着追问。</strong></p>
 <p align="center">
   <a href="#快速开始"><img alt="桌面部署支持 macOS" src="https://img.shields.io/badge/macOS-本地部署-2868cf"></a>
+  <a href="#快速开始"><img alt="桌面部署支持 Windows x64" src="https://img.shields.io/badge/Windows-x64-2868cf"></a>
   <a href="#模型与隐私"><img alt="使用自己的 API Key" src="https://img.shields.io/badge/API-自带密钥-107764"></a>
   <a href="#随仓资料库"><img alt="数据库 PostgreSQL 16" src="https://img.shields.io/badge/PostgreSQL-16-315574"></a>
   <a href="LICENSE"><img alt="自有代码 MIT" src="https://img.shields.io/badge/代码许可-MIT-836320"></a>
 </p>
-<p align="center"><a href="https://github.com/Brandon030722/ark-archive/archive/refs/heads/main.zip"><strong>下载项目 ZIP</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#能用来做什么">功能预览</a> · <a href="#随仓资料库">资料来源</a> · <a href="https://github.com/Brandon030722/ark-archive/issues">反馈问题</a></p>
+<p align="center"><a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.2/Ark-Archive-Windows-x64.zip"><strong>Windows x64 下载</strong></a> · <a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.1/Ark-Archive-macOS.zip"><strong>macOS 下载</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#能用来做什么">功能预览</a> · <a href="#随仓资料库">资料来源</a> · <a href="https://github.com/Brandon030722/ark-archive/issues">反馈问题</a></p>
 
 ![方舟档案桌面工作台，包含干员、公招、集成战略和卫戍协议入口](docs/images/desktop-home.png)
 
 ## 快速开始
 
-1. 在 Mac 上下载项目 ZIP 并解压。把整个文件夹移到个人主目录，选一个以后也会保留的位置。
-2. 双击 **启动方舟档案.command**。首次启动会联网准备 Python 与 PostgreSQL、校验资料包、导入资料并打开浏览器。已有适用工具会直接复用。以后双击同一文件即可启动。
-3. 在电脑浏览器的首次引导里打开**模型管理**，选服务商、填自己的 Key、选模型。想先体验可以跳过，直接试用资料检索或战术工具。
+| 系统 | 解压后双击 | 停止工作台 |
+| --- | --- | --- |
+| Windows x64 | `Start-Ark-Archive.cmd` | 双击 `Stop-Ark-Archive.cmd` 或在启动窗口按 Ctrl+C |
+| macOS | `启动方舟档案.command` | 见[运行手册](docs/运行手册.md#状态停止和备份) |
 
-**手机访问**　在 Mac 上双击 **开启局域网访问.command**，用同一 Wi-Fi 下的手机打开终端显示的网址。这个模式会让同网设备通过你的 Mac 发起提问并使用你配置的模型额度，适合信任的家庭网络。双击普通启动入口可切回本机模式。
+把解压后的文件夹放到准备长期保留的本机位置。首次启动会下载 Python 和依赖、校验并导入资料，然后打开浏览器。Windows 安装包已包含 PostgreSQL 和 uv。以后双击原文件夹中的启动入口即可沿用资料和设置。
 
-首次安装需要能访问 GitHub 和 Python 软件源。如果 macOS 提示无法验证开发者，请先核对下载来源，再按系统“隐私与安全性”的提示打开。安装或后台启动遇到问题可查看[运行手册](docs/运行手册.md)。
+首次引导结束后，在**模型管理**选择服务商、填自己的 Key、选模型。想先体验可以跳过，直接使用资料检索和战术工具。
+
+**Mac 上的手机访问**　双击 **开启局域网访问.command** 后，用同一 Wi-Fi 下的手机打开终端显示的网址。这个模式下，同网设备可通过你的 Mac 使用当前配置的模型额度。双击普通入口可切回本机模式。
+
+首次启动需要能访问 GitHub 和 Python 软件源。[查看完整运行手册](docs/运行手册.md)
 
 ## 能用来做什么
 
