@@ -39,17 +39,23 @@ jobs:
           $staging = Join-Path $env:RUNNER_TEMP 'ark-build'
           $output = Join-Path $env:RUNNER_TEMP 'ark-output'
           New-Item -ItemType Directory -Path $staging,$output | Out-Null
-          git archive --format=tar --prefix=Ark-Archive/ -o "$output/source.tar" HEAD
-          tar.exe -xf "$output/source.tar" -C $staging
+          $package = "$output/Ark-Archive-Windows-x64.zip"
+          git archive --format=zip --prefix=Ark-Archive/ -o $package HEAD
+          if ($LASTEXITCODE) { throw 'Failed to archive the project.' }
           . ./scripts/install_windows_tools.ps1
-          Install-ArkWindowsTools "$staging/Ark-Archive/vendor/windows"
-          Push-Location $staging
-          try {
-            python -m zipfile -c "$output/Ark-Archive-Windows-x64.zip" Ark-Archive
-            if ($LASTEXITCODE) { throw 'Failed to create Windows ZIP.' }
-          } finally {
-            Pop-Location
-          }
+          Install-ArkWindowsTools "$staging/vendor/windows"
+          @'
+          import sys
+          from pathlib import Path
+          from zipfile import ZIP_DEFLATED, ZipFile
+
+          staging, package = map(Path, sys.argv[1:])
+          with ZipFile(package, "a", compression=ZIP_DEFLATED) as archive:
+              for file in sorted(staging.rglob("*")):
+                  if file.is_file():
+                      archive.write(file, "Ark-Archive/" + file.relative_to(staging).as_posix())
+          '@ | python - $staging $package
+          if ($LASTEXITCODE) { throw 'Failed to add the Windows runtime to the ZIP.' }
       - name: Install extracted ZIP and restart the workbench
         shell: pwsh
         run: |
