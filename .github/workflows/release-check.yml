@@ -43,8 +43,13 @@ jobs:
           tar.exe -xf "$output/source.tar" -C $staging
           . ./scripts/install_windows_tools.ps1
           Install-ArkWindowsTools "$staging/Ark-Archive/vendor/windows"
-          tar.exe -a -cf "$output/Ark-Archive-Windows-x64.zip" -C $staging Ark-Archive
-          if ($LASTEXITCODE) { throw 'Failed to create Windows ZIP.' }
+          Push-Location $staging
+          try {
+            python -m zipfile -c "$output/Ark-Archive-Windows-x64.zip" Ark-Archive
+            if ($LASTEXITCODE) { throw 'Failed to create Windows ZIP.' }
+          } finally {
+            Pop-Location
+          }
       - name: Install extracted ZIP and restart the workbench
         shell: pwsh
         run: |

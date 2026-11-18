@@ -2,11 +2,14 @@
 const assert = require("node:assert/strict");
 const { spawn, spawnSync } = require("node:child_process");
 const { createHash } = require("node:crypto");
-const { readFileSync } = require("node:fs");
+const { existsSync, readFileSync } = require("node:fs");
 const path = require("node:path");
 const { setTimeout: delay } = require("node:timers/promises");
 const { chromium } = require(process.env.ARK_PLAYWRIGHT_CORE);
 
+for (const file of [".python-version", "docs/运行手册.md", "docs/资料来源.md"]) {
+  assert(existsSync(file), `Expected file missing after Windows extraction: ${file}`);
+}
 const archive = path.join(process.cwd(), ".local");
 const host = "http://127.0.0.1:18086";
 const manifest = JSON.parse(readFileSync("distribution/knowledge.json", "utf8"));
