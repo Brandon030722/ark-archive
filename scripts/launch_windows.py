@@ -3,10 +3,10 @@ import argparse
 import json
 import os
 import secrets
+import shutil
 import socket
 import subprocess
 import sys
-import tempfile
 import threading
 from pathlib import Path
 from urllib.parse import urlencode
@@ -35,8 +35,12 @@ def initialize():
         available.bind(("127.0.0.1", 0))
         port = available.getsockname()[1]
     connection = {"password": secrets.token_urlsafe(36), "port": port}
-    with tempfile.TemporaryDirectory(dir=CLUSTER) as scratch:
-        folder = Path(scratch)
+    # Inherit the Windows ACL already applied to .local. Python's Windows
+    # mkdir(mode=0o700) replaces inherited rights when making a temp directory,
+    # which PostgreSQL's restricted startup token cannot use.
+    folder = CLUSTER / ("initialize-" + secrets.token_hex(12))
+    folder.mkdir()
+    try:
         password = folder / "password"
         password.write_text(connection["password"] + "\n", encoding="ascii")
         staging = folder / "data"
@@ -47,6 +51,8 @@ def initialize():
                          "shared_buffers = '32MB'\nmax_connections = 40\n")
         (staging / "ark-connection.json").write_text(json.dumps(connection), encoding="ascii")
         staging.rename(DATA)
+    finally:
+        shutil.rmtree(folder)
     return connection
 
 
