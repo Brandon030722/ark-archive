@@ -39,7 +39,7 @@ try {
     $acl.SetAccessRuleProtection($true, $false)
     $acl.SetAccessRule([Security.AccessControl.FileSystemAccessRule]::new(
         $owner, 'FullControl', 'ContainerInherit,ObjectInherit', 'None', 'Allow'))
-    Set-Acl -LiteralPath $local -AclObject $acl
+    [IO.DirectoryInfo]::new($local).SetAccessControl($acl)
     Remove-Item -LiteralPath $stopFile -Force -ErrorAction SilentlyContinue
 
     $tools = Join-Path (Get-Location).Path 'vendor\windows'
