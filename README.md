@@ -8,7 +8,7 @@
   <a href="#随仓资料库"><img alt="数据库 PostgreSQL 16" src="https://img.shields.io/badge/PostgreSQL-16-315574"></a>
   <a href="LICENSE"><img alt="自有代码 MIT" src="https://img.shields.io/badge/代码许可-MIT-836320"></a>
 </p>
-<p align="center"><a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.2/Ark-Archive-Windows-x64.zip"><strong>Windows x64 下载</strong></a> · <a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.1/Ark-Archive-macOS.zip"><strong>macOS 下载</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#能用来做什么">功能预览</a> · <a href="#随仓资料库">资料来源</a> · <a href="https://github.com/Brandon030722/ark-archive/issues">反馈问题</a></p>
+<p align="center"><a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.3/Ark-Archive-Windows-x64.zip"><strong>Windows x64 下载</strong></a> · <a href="https://github.com/Brandon030722/ark-archive/releases/download/v0.23.0-beta.3/Ark-Archive-macOS.zip"><strong>macOS 下载</strong></a> · <a href="#快速开始">快速开始</a> · <a href="#能用来做什么">功能预览</a> · <a href="#随仓资料库">资料来源</a> · <a href="https://github.com/Brandon030722/ark-archive/issues">反馈问题</a></p>
 
 ![方舟档案桌面工作台，包含干员、公招、集成战略和卫戍协议入口](docs/images/desktop-home.png)
 
