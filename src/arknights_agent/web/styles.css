@@ -444,6 +444,20 @@ svg {
   min-width:0
 }
 
+.workbench-back {
+  display:inline-grid;
+  place-items:center;
+  flex:none;
+  width:44px;
+  height:44px;
+  padding:0;
+  color:inherit;
+  border:1px solid transparent;
+  border-radius:10px;
+  text-decoration:none;
+}
+.workbench-back:hover { background:var(--ark-soft); }
+
 .view-location {
   display:flex;
   flex-direction:column;
@@ -3879,6 +3893,7 @@ article.answer-card--lead { border-left:2px solid var(--topic-ink); }
 }
 [data-ark-theme="popucom"] .view-location strong { color:#fff; font-size:17px; font-weight:750; }
 [data-ark-theme="popucom"] .breadcrumb::before { display:none; }
+[data-ark-theme="popucom"] .workbench-back:hover { background:#2a4771; }
 [data-ark-theme="popucom"] .topbar :is(.appearance-trigger,.connection,.account-trigger,.mobile-menu) { color:#fff; border-color:#697e9b; border-radius:13px; background:#172c50; }
 [data-ark-theme="popucom"] .topbar :is(.appearance-trigger,.connection,.account-trigger):hover { background:#2a4771; }
 [data-ark-theme="popucom"] .account-trigger-label { color:#cddfff; }

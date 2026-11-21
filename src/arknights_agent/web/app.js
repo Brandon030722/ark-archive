@@ -1773,7 +1773,17 @@
     $("workspace").inert = false;
     if (matchMedia("(max-width:760px)").matches) $("sidebar").inert = true;
   }
-  function switchView(view) {
+  const viewTitles = {chat: "问答工作台", library: "资料检索", saved: "我的档案", help: "使用说明", tools: "战术工具"};
+  const canGoBackWithinWorkbench = () => globalThis.history?.state?.workbenchView === state.view
+    && history.state.workbenchBack === true;
+  function updateBackNavigation() {
+    const back = $("workbench-back");
+    if (back) back.hidden = state.view === "chat" && !canGoBackWithinWorkbench();
+  }
+  function switchView(view, recordHistory = true) {
+    if (recordHistory && view !== state.view && globalThis.history) {
+      history.pushState({workbenchView: view, workbenchBack: true}, "");
+    }
     if (view !== state.view && (view === "saved" || state.view === "saved")) {
       savedOpenToken++; savedReading = null;
       $("saved-reader").hidden = true; $("saved-reader").replaceChildren(); $("saved-library").hidden = false;
@@ -1781,9 +1791,9 @@
     closeContextBubble();
     state.view = view;
     for (const name of ["chat", "library", "saved", "help", "tools"]) $(`${name}-view`).hidden = view !== name;
-    const titles = {chat: "问答工作台", library: "资料检索", saved: "我的档案", help: "使用说明", tools: "战术工具"};
-    $("view-title").textContent = titles[view];
+    $("view-title").textContent = viewTitles[view];
     viewControls().forEach((b) => { b.classList.toggle("active", b.dataset.view === view); if (b.dataset.view === view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
+    updateBackNavigation();
     closeNav(); updateSurface();
     if (view === "saved") renderSavedLibrary();
     if (view === "tools") window.ArkGameTools?.open();
@@ -3210,6 +3220,19 @@
   }
 
   viewControls().forEach((b) => b.addEventListener("click", () => switchView(b.dataset.view)));
+  const restoreView = () => {
+    const view = globalThis.history?.state?.workbenchView;
+    const target = typeof view === "string" && Object.prototype.hasOwnProperty.call(viewTitles, view) ? view : "chat";
+    if (target !== state.view) switchView(target, false);
+    else updateBackNavigation();
+  };
+  $("workbench-back")?.addEventListener("click", () => {
+    if (canGoBackWithinWorkbench()) history.back();
+    else switchView("chat", false);
+    $("view-title").focus({preventScroll: true});
+  });
+  globalThis.addEventListener?.("popstate", restoreView);
+  restoreView();
   const tour = $("workbench-tour");
   const tourSteps = [
     {target: () => $("question"), title: "直接问，接着问", description: "试着问「温蒂有哪些公招标签？」看完回答，可以查看来源或继续追问。"},
