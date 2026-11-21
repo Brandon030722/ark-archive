@@ -22,6 +22,7 @@
       <symbol id="i-archive" viewBox="0 0 24 24"><path d="M4 4h16v5H4zM6 9v11h12V9M9 13h6"/></symbol>
       <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></symbol>
       <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
       <symbol id="i-send" viewBox="0 0 24 24"><path d="m5 11 7-7 7 7M12 4v16"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
       <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
@@ -54,7 +55,11 @@
     </aside>
     <main class="workspace" id="workspace">
       <header class="topbar">
-        <div class="breadcrumb"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="打开导航" aria-expanded="false"><svg><use href="#i-menu"/></svg></button><div class="view-location"><strong id="view-title">问答工作台</strong></div></div>
+        <div class="breadcrumb">
+          <button class="icon-button mobile-menu" id="mobile-menu" aria-label="打开导航" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+          <button class="workbench-back" id="workbench-back" type="button" aria-label="返回上一页" title="返回上一页" hidden><svg aria-hidden="true"><use href="#i-back"/></svg></button>
+          <div class="view-location"><strong id="view-title" tabindex="-1">问答工作台</strong></div>
+        </div>
         <div class="topbar-actions"><button id="open-appearance" class="appearance-trigger" type="button" aria-label="切换皮肤" aria-haspopup="dialog"><svg aria-hidden="true"><use href="#i-palette"/></svg><span>皮肤</span></button><button class="account-trigger" id="open-account" aria-label="查看账户与用量" aria-haspopup="dialog"><span id="account-trigger-label" class="account-trigger-label">余额</span><span id="account-chip">—</span></button><button class="connection" id="connection" title="查看资料版本"><span class="connection-dot"></span><svg class="connection-mobile-icon" aria-hidden="true"><use href="#i-archive"/></svg><span id="connection-label">连接中</span><svg class="connection-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
       </header>
       <aside id="balance-alert" class="balance-alert" aria-label="低余额提醒" hidden><p id="balance-alert-text" role="status"></p><div><button id="balance-alert-open" type="button">查看账户</button><button id="balance-alert-snooze" type="button">1 小时后提醒</button></div></aside>
